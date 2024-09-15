@@ -66,3 +66,4 @@ out-tsc/
 # Temporary folders
 tmp/
 temp/
+.vercel

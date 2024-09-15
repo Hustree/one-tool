@@ -1,0 +1,16 @@
+{
+    "public": "./dist/transfer-app",
+    "builds": [
+      {
+        "src": "dist/transfer-app/**/*",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }
+  
