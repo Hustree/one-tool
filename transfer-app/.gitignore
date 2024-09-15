@@ -44,3 +44,25 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# JetBrains Rider
+*.sln.iml
+
+# Node.js dependencies
+node_modules/
+
+# Angular cache
+.angular/cache/
+
+# VS Code configuration files
+.vscode/
+
+# Dist folder (output directory for production builds)
+dist/
+
+# Compiled output
+out-tsc/
+
+# Temporary folders
+tmp/
+temp/
