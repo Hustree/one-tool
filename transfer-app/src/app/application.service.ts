@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ApplicationService {
 
-  private apiUrl = 'https://api.staging.buildpass.baguio.gov.ph/api/developer'; // Updated backend URL with /api/
+  private apiUrl = 'https://api.buildpass.baguio.gov.ph/api/developer'; // Updated backend URL with /api/
 
   constructor(private http: HttpClient) { }
 

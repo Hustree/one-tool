@@ -1,0 +1,15 @@
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 15px;
+  }
+  
