@@ -1,0 +1,118 @@
+<!-- src/app/transfer-application/transfer-application.component.html -->
+
+<div class="container">
+  <form [formGroup]="transferForm">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Application Code</mat-label>
+      <input matInput formControlName="applicationCode" required>
+      <mat-error *ngIf="transferForm.get('applicationCode').hasError('required')">
+        Application Code is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email Address</mat-label>
+      <input matInput formControlName="emailAddress" required>
+      <mat-error *ngIf="transferForm.get('emailAddress').hasError('required')">
+        Email Address is required
+      </mat-error>
+      <mat-error *ngIf="transferForm.get('emailAddress').hasError('email')">
+        Enter a valid email
+      </mat-error>
+    </mat-form-field>
+
+    <div class="button-group">
+      <button mat-raised-button color="accent" type="button" (click)="onCheck()" [disabled]="loading">
+        Check
+      </button>
+      <button mat-raised-button color="primary" type="button" (click)="onSubmit()" [disabled]="loading">
+        Transfer Application
+      </button>
+    </div>
+
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+    <div *ngIf="checkMessage" class="check-message">
+      {{ checkMessage }}
+    </div>
+
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Application Details Table -->
+    <table *ngIf="applicationDetails" class="details-table">
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>ID</td>
+        <td>{{ applicationDetails.id }}</td>
+      </tr>
+      <tr>
+        <td>OCPAS Code</td>
+        <td>{{ applicationDetails.ocpas_code }}</td>
+      </tr>
+      <tr>
+        <td>Permit Application Code</td>
+        <td>{{ applicationDetails.permit_application_code }}</td>
+      </tr>
+      <tr>
+        <td>Permit Released Code</td>
+        <td>{{ applicationDetails.permit_released_code || 'N/A' }}</td>
+      </tr>
+
+      <!-- Display user details associated with the application -->
+      <tr *ngIf="applicationDetails.user">
+        <td colspan="2" style="font-weight: bold;">Current User</td>
+      </tr>
+      <tr *ngIf="applicationDetails.user">
+        <td>User ID</td>
+        <td>{{ applicationDetails.user.id }}</td>
+      </tr>
+      <tr *ngIf="applicationDetails.user">
+        <td>User Name</td>
+        <td>{{ applicationDetails.user.name }}</td>
+      </tr>
+      <tr *ngIf="applicationDetails.user">
+        <td>User Email</td>
+        <td>{{ applicationDetails.user.email_address }}</td>
+      </tr>
+    </table>
+
+
+    <!-- User Details Table -->
+    <table *ngIf="userDetails" class="details-table">
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>ID</td>
+        <td>{{ userDetails.id }}</td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>{{ userDetails.name }}</td>
+      </tr>
+      <tr>
+        <td>Email Address</td>
+        <td>{{ userDetails.email_address }}</td>
+      </tr>
+    </table>
+
+    <div *ngIf="transferMessage">
+      <p>{{ transferMessage }}</p>
+      <button mat-raised-button color="accent" (click)="copyToClipboard()">
+        Copy to Clipboard
+      </button>
+    </div>
+
+  </form>
+</div>
