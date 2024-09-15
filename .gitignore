@@ -397,22 +397,24 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-# Ignore node_modules inside transfer-app
-transfer-app/node_modules/
+# JetBrains Rider
+*.sln.iml
 
-# Ignore Angular cache inside transfer-app
-transfer-app/.angular/cache/
+# Node.js dependencies
+node_modules/
 
-# Ignore VS Code configuration files inside transfer-app
-transfer-app/.vscode/
+# Angular cache
+.angular/cache/
 
-# Ignore dist folder (output directory for production builds) inside transfer-app
-transfer-app/dist/
+# VS Code configuration files
+.vscode/
 
-# Ignore compiled output inside transfer-app
-transfer-app/out-tsc/
+# Dist folder (output directory for production builds)
+dist/
 
-# Ignore temporary folders inside transfer-app
-transfer-app/tmp/
-transfer-app/temp/
+# Compiled output
+out-tsc/
 
+# Temporary folders
+tmp/
+temp/
